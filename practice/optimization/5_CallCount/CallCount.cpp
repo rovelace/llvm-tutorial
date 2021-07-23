@@ -4,6 +4,16 @@
 #include "CallCount.h"
 
 bool CallCount::runOnFunction(Function &F) {
+	int cnt = 0;
+	for ( auto & BB :F){
+		for (auto& II :BB){
+			if (auto CC = dyn_cast<CallInst> (&II)){
+				cnt++;
+			}
+		}
+	}
+
+	dbgs() << F.getName() << ":" <<cnt << "\n";
     return false;
 }
 

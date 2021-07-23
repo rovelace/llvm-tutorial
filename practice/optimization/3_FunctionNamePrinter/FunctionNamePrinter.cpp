@@ -5,6 +5,7 @@
 
 
 bool FunctionNamePrinter::runOnFunction(Function &F) {
+	dbgs() << F.getName() <<"\n";
     return false;
 }
 

@@ -4,6 +4,13 @@
 #include "InstCount.h"
 
 bool InstCount::runOnFunction(Function &F) {
+	int cnt = 0;
+	for (auto &BB : F){
+	for (auto &II : BB){
+		cnt++;
+	}
+	}
+	dbgs() << F.getName() << ":" << cnt << "\n";
     return false;
 }
 
